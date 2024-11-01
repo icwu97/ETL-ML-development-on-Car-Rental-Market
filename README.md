@@ -12,41 +12,38 @@ Analysis: Use SQL and Python to analyze car transaction data
 (1)	Price vs. Odometer Correlation:
 Calculate the average price by odometer ranges to see how price drops with mileage.
 
-SELECT 
-     odometer
-        WHEN odometer < 50000 THEN '0-50K'
-        WHEN odometer BETWEEN 50000 AND 100000 THEN '50K-100K'
-        WHEN odometer BETWEEN 100000 AND 150000 THEN '100K-150K'
-        ELSE '150K+' 
-    END AS mileage_range,
-    AVG(price) AS avg_price
-FROM car_example
-WHERE price IS NOT NULL AND odometer IS NOT NULL
-GROUP BY mileage_range
-ORDER BY avg_price DESC;
+![image](https://github.com/user-attachments/assets/69d168d5-700c-4233-950f-756a36ba3d0e)
+
 
 (2)	Average Price by Condition:
 Analyze how different conditions affect average pricing.
 
-SELECT 
-    condition, 
-    AVG(price) AS avg_price, 
-    COUNT(*) AS total_cars
-FROM car_example
-WHERE price IS NOT NULL
-GROUP BY condition
-ORDER BY avg_price DESC;
+![image](https://github.com/user-attachments/assets/e6243595-b881-4132-a3e5-edba6019dec7)
+
 
 (3)	Price Trends by Model Year:
 Examine the average price for each model year to identify how prices change over time.
 
-SELECT 
-    model_year, 
-    AVG(price) AS avg_price, 
-    COUNT(*) AS total_listings
-FROM car_example
-WHERE price IS NOT NULL AND model_year > 0
-GROUP BY model_year
-ORDER BY model_year DESC;
+![image](https://github.com/user-attachments/assets/5b8007b8-3716-405f-9c41-ca2cb2d9727f)
+
 
 These three factors—odometer reading, condition, and model year—are the primary drivers influencing car prices. In a competitive pricing strategy, sellers can focus on setting prices relative to these key factors to attract buyers while maximizing profitability.
+
+# 3.	Summary
+
+A brief summary of the outcomes based on the data:
+
+1. Average Price by Odometer Range:
+(1) Cars with 0-50K miles have the highest average prices.
+(2) Low-mileage cars can be priced at a premium, as buyers are willing to pay more for less wear.
+
+3. Average Price by Condition:
+(1) Cars in better conditions (like "like new" or "excellent") command higher prices.
+(2) Vehicles in "salvage" or "fair" condition show significantly lower prices, indicate that condition is a key factor in determining price and value.
+(3) Sellers can increase profitability by investing in repairs and maintenance to upgrade vehicle condition.
+(4) For cars in poor condition, sellers should adopt a discount strategy or focus on niche buyers (e.g., those interested in salvage or project vehicles).
+
+4. Price Trends by Model Year:
+(1) Newer model years generally have higher prices, it shows with a clear decline as model years get older.
+(2) Sellers should highlight the features and reliability of newer models to justify higher prices. For older cars, sellers can emphasize good maintenance history to sustain competitive pricing.
+
