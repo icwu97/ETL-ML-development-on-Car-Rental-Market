@@ -49,7 +49,8 @@ The condition variable ranges from 0 to 4, likely representing different conditi
    - (4) For cars in poor condition, sellers should adopt a discount strategy or focus on niche buyers to attract specific customers like students .
 
 3. Price Trends by Model Year:
-   ![image](https://github.com/user-attachments/assets/3c6a40e8-ef4b-475e-8c22-1920d1893f69)
+   ![image](https://github.com/user-attachments/assets/752d59b8-439c-4e82-a70c-20692ba4471d)
+
 
    - (1) Newer model years generally have higher prices, it shows with a clear decline as model years get older.
    - (2) Sellers should highlight the features and reliability of newer models to justify higher prices. For older cars, sellers can emphasize good maintenance history to sustain competitive pricing.
