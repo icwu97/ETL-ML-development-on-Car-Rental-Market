@@ -75,7 +75,7 @@ A brief summary and strategy of the outcomes based on the data:
    - Standard Error (23,532.89): This suggests that the model's predictions deviate from the actual car prices by an average of $23,532.
    - P-value for Model Year (0.0037): The model year coefficient is statistically significant (p < 0.05). This is confirmed that model year has a meaningful impact on car price in this dataset.
 
-5. Relation between multivarite analysis:
+5. Relation between multivariate analysis:
    ![image](https://github.com/user-attachments/assets/751a574b-cb47-4b48-8ec4-f960607ce99f)
 
    - R Square (0.1124): About 11.24% of the variation in car prices can be explained by the combined effects of odometer, model year, and condition.
