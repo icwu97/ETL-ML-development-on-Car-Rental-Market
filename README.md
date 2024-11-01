@@ -86,3 +86,6 @@ A brief summary and strategy of the outcomes based on the data:
 
 # 5. Conclusion
 This regression model reveals that model year and condition are significant predictors of car price, with condition having a positive effect and model year a negative effect. Odometer, however, is not statistically significant in this model. After investigating, the resons on odometer might cause by luxury brand which may affect between odometer, brand, and price.
+   - For optimal pricing, newer models (2015+) in excellent condition should be priced at the high end of the market range, while those in fair or poor condition should be discounted.
+   - Mid-aged models (2005-2014) in good or excellent condition can be moderately priced.
+   - For older or high-mileage cars in fair or poor condition, focus on budget pricing to attract buyers seeking affordable optionss. 
