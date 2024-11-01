@@ -37,7 +37,7 @@ A brief summary and strategy of the outcomes based on the data:
    ![image](https://github.com/user-attachments/assets/fd2159df-7e0d-4d3e-b6a5-b918f45b8ba7)
 
    - (1) Cars with 0-50K miles have the highest average prices.
-   - (2) Low-mileage cars can be priced at a premium, as buyers are willing to pay more for less wear.
+   - (2) Low-mileage cars can be priced at a premium, as buyers are willing to pay more for less mileage.
    - ** Fun facts: The finding that cars with 150K+ miles have a higher average price than those with <50K miles is unusual. To investigate further, high-mileage vehicles in the data might be luxury models that retain value despite higher mileage. For example, some buyers are willing to pay more for a high-mileage premium or well-maintained vehicle like Mercedes compared to a lower-mileage and economy car.
 
 2. Average Price by Condition:
