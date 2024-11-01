@@ -16,7 +16,7 @@ Calculate the average price by odometer ranges to see how price drops with milea
 
 
 (2)	Condition and Price:
-Analyze how different conditions affect average pricing.
+Analyze how different conditions affect average pricing. The condition variable ranges from 0 to 4, likely representing different conditions from "poor" to "excellent".
 
 ![image](https://github.com/user-attachments/assets/e6243595-b881-4132-a3e5-edba6019dec7)
 
@@ -42,7 +42,7 @@ A brief summary and strategy of the outcomes based on the data:
 
 2. Average Price by Condition:
    ![image](https://github.com/user-attachments/assets/ffa43cca-da04-40ae-ba33-1ee0cd19941c)
-The condition variable ranges from 0 to 4, likely representing different conditions from "poor" to "excellent".
+
    - (1) Cars in better conditions (like "like new" or "excellent") command higher prices.
    - (2) Vehicles in "salvage" or "fair" condition show significantly lower prices, indicate that condition is a key factor in determining price and value.
    - (3) Sellers can increase profitability by good maintaining vehicle condition.
@@ -50,7 +50,6 @@ The condition variable ranges from 0 to 4, likely representing different conditi
 
 3. Price Trends by Model Year:
    ![image](https://github.com/user-attachments/assets/752d59b8-439c-4e82-a70c-20692ba4471d)
-
 
    - (1) Newer model years generally have higher prices, it shows with a clear decline as model years get older.
    - (2) Sellers should highlight the features and reliability of newer models to justify higher prices. For older cars, sellers can emphasize good maintenance history to sustain competitive pricing.
