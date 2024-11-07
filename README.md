@@ -12,7 +12,7 @@ Analysis: Use SQL and Python to analyze car transaction data
 (1)	Odometer and Price:
 Calculate the average price by odometer ranges to see how price drops with mileage.
 
-![image](https://github.com/user-attachments/assets/69d168d5-700c-4233-950f-756a36ba3d0e)
+![image](https://github.com/user-attachments/assets/69d168d5-700c-4233-950f-756a36ba3d0e | witdth = 100)
 
 
 (2)	Condition and Price:
