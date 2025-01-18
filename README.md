@@ -95,10 +95,10 @@ A brief summary and strategy of the outcomes based on the data:
 
 # Regression statistics:
 
-   ```
-   from sklearn.linear_model import LinearRegression
-   from sklearn.metrics import mean_squared_error, r2_score
-   import pandas as pd
+```
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import pandas as pd
 
 # Load the data
 file_path = '/mnt/data/car_example.csv'
@@ -106,12 +106,19 @@ data = pd.read_csv(file_path)
 
 # Drop rows with missing 'price', 'odometer', 'model_year' or 'condition' values
 data_cleaned = data.dropna(subset=['price', 'odometer', 'model_year', 'condition'])
+```
+
+```
+# Import necessary library
+from sklearn.preprocessing import LabelEncoder
 
 # Encode the 'condition' column
 data_cleaned['condition'].fillna('unknown', inplace=True)
 label_encoder = LabelEncoder()
 data_cleaned['condition_encoded'] = label_encoder.fit_transform(data_cleaned['condition'])
+```
 
+```
 # Function to perform and print results of linear regression for a single feature
 def analyze_feature(feature_name, X, y):
     model = LinearRegression()
@@ -126,7 +133,9 @@ def analyze_feature(feature_name, X, y):
     print("Mean Squared Error (MSE):", mse)
     print("R-squared (R²):", r2)
     print(f"Coefficient for {feature_name}: {coefficient}\n")
+```
 
+```
 # Target variable
 y = data_cleaned['price']
 
@@ -144,37 +153,91 @@ X_model_year = data_cleaned[['model_year']]
 analyze_feature("Price vs Model Year", X_model_year, y)```
 ```
 
-1. Average Price by Odometer Range:
+1. Price vs Odometer:
 
-   <img src="https://github.com/user-attachments/assets/3689a50b-d919-4fb5-af9e-86ac4a512906" width="370" height="150">
+--- Price vs Odometer ---
+Mean Squared Error (MSE): 883302247.9873015
+R-squared (R²): 0.0004469943499377793
+Coefficient for Price vs Odometer: 0.009921914499807838
    
-   - R Square (0.0017): This value shows that only 0.17% of the variation in car prices can be explained by odometer readings. This suggests that odometer alone is not a strong predictor of car prices.
-   - Standard Error (24372.12): Indicated that the predictions are, on average off around $24,372.
-   - P-value for Odometer (0.6541): The odometer coefficient is not that statistically significant (p > 0.05). This means that odometer does not significantly impact the price in this analysis.
+   - MSE (883,302,247.99): This high value suggests that the model's predictions deviate significantly from the actual prices on average. MSE is sensitive to the scale of the target variable.
+   - R² (0.0004): This indicates that only 0.04% of the variation in price is explained by the odometer reading. Essentially, odometer has a negligible effect on the price in this dataset.
+   - Coefficient (0.0099): For every 1-unit increase in odometer, the price increases by 0.0099 units. This is unusual because we typically expect odometer to negatively affect price (as cars with higher mileage usually have lower prices). This could be due to outliers, data quality issues, or the need for feature scaling.
 
-3. Average price by Condition:
+3. Price vs Condition:
 
-   <img src="https://github.com/user-attachments/assets/2cbdf0ea-b50a-4cd6-a56c-172e3952c95b" width="370" height="150">
+--- Price vs Condition ---
+Mean Squared Error (MSE): 883293109.4070103
+R-squared (R²): 0.0004573356520438665
+Coefficient for Price vs Condition: 576.0638776428258
 
-   - R Square (0.0525): This value suggests that approximately 5.25% of the variation in car prices can be explained by the condition variable.
-   - P-value for Condition (0.0118): The condition coefficient is statistically significant (p < 0.05). This is confirmed that car condition has a meaningful impact on price.
+   - MSE (883,293,109.41): Similar to odometer, the predictions have a large deviation from the actual prices.
+   - R² (0.00046): Only 0.046% of the price variation is explained by the car's condition. This suggests condition has a very weak relationship with price in this dataset.
+   - Coefficient (576.06): For each unit increase in the condition_encoded feature, the price increases by $576. This suggests that better condition cars (if encoded as higher numbers) are slightly associated with higher prices, but the effect is very weak.
 
-5. Average Trends by Model Year:
+5. Price vs Model Year
 
-   <img src="https://github.com/user-attachments/assets/29d2fb39-243e-4a79-9b60-b1cb5e230e4b" width="370" height="150">
+--- Price vs Model Year ---
+Mean Squared Error (MSE): 820532723.6300294
+R-squared (R²): 0.071477569532441
+Coefficient for Price vs Model Year: -12.722549154304126
 
-   - R Square (0.0693): This value indicates that approximately 6.93% of the variation in car prices can be explained by the model year. 
-   - Standard Error (23,532.89): This suggests that the model's predictions deviate from the actual car prices by an average of $23,532.
-   - P-value for Model Year (0.0037): The model year coefficient is statistically significant (p < 0.05). This is confirmed that model year has a meaningful impact on car price in this dataset.
+   - MSE (820,532,723.63): This MSE is slightly lower than for the other features, meaning the model fits the data marginally better.
+   - R² (0.0715): About 7.15% of the price variation is explained by the car's model year. While still weak, model year appears to be more predictive of price compared to odometer or condition.
+   - Coefficient (-12.72): For each additional year in the car's model year, the price decreases by $12.72. This negative relationship could imply that older model years are associated with higher prices, which might seem counterintuitive but could make sense if the dataset includes vintage or collectible cars.
 
 7. Relation between multivariate analysis:
 
-   <img src="https://github.com/user-attachments/assets/751a574b-cb47-4b48-8ec4-f960607ce99f" width="370" height="150">
+```
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
 
-   - R Square (0.1124): About 11.24% of the variation in car prices can be explained by the combined effects of odometer, model year, and condition.
-   - Odometer: The p-value (0.5537) is above 0.05, so odometer is not statistically significant in this model, suggesting that it does not have a strong influence on car price when model year and condition are included.
-   - Model Year: The p-value (0.0061) is below 0.05, indicating that model year has a statistically significant impact on car price. This aligns with expectations that older cars generally have lower prices.
-   - Condition: The p-value (0.0424) is below 0.05, making condition statistically significant. This confirms that cars in better condition command higher prices.
+# Selecting features for multivariate analysis
+X_multivariate = data_cleaned[['odometer', 'condition_encoded', 'model_year']]  # Add other features as needed
+y = data_cleaned['price']
+
+# Fit the model
+model = LinearRegression()
+model.fit(X_multivariate, y)
+
+# Predictions
+y_pred = model.predict(X_multivariate)
+
+# Metrics
+mse = mean_squared_error(y, y_pred)
+r2 = r2_score(y, y_pred)
+coefficients = model.coef_
+intercept = model.intercept_
+
+print("Multivariate Linear Regression Results:")
+print(f"Mean Squared Error (MSE): {mse}")
+print(f"R-squared (R²): {r2}")
+print(f"Intercept: {intercept}")
+print("Coefficients:")
+for feature, coef in zip(X_multivariate.columns, coefficients):
+    print(f"  {feature}: {coef}")
+```
+Multivariate Linear Regression Results:
+Mean Squared Error (MSE): 808287861.6904154
+R-squared (R²): 0.0853339687246768
+Intercept: 49497.36478735225
+Coefficients:
+  odometer: -0.06252319819456688
+  condition_encoded: 32.041516321995246
+  model_year: -15.68573442815044
+
+
+MSE (808,287,861.69): This MSE indicates the average squared deviation between the predicted and actual prices when considering all features. The MSE is slightly lower compared to univariate models, suggesting that combining multiple features improves the model's fit marginally.
+
+R² (0.0853): About 8.53% of the variation in price is explained by the combined effects of odometer, condition, and model year. While this is an improvement over individual feature R² values, it still indicates that a significant portion of the price variability is not captured by these features, suggesting the need for additional or alternative predictors.
+
+Intercept (49,497.36): When all features (odometer, condition_encoded, model_year) are 0, the baseline price of the car is approximately $49,497. While this value might not be meaningful practically, it helps anchor the regression line.
+
+Coefficients:
+
+ - Odometer (-0.0625): For each additional mile, the price decreases by $0.0625, holding all other features constant. This reflects the expected trend where higher mileage leads to lower car prices.
+ - Condition Encoded (32.04): For each unit increase in the condition's encoded value, the price increases by $32.04, assuming other features are constant. While the impact is positive, the effect is relatively small, indicating condition alone has limited influence on price.
+ - Model Year (-15.69): For each additional year in the car's model year, the price decreases by $15.69, holding other factors constant. This suggests that older cars (potentially vintage or collectible) might have higher prices, which could explain the negative relationship.
   
 
 # 5. Conclusion
