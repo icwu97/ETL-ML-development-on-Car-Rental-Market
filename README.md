@@ -155,7 +155,6 @@ analyze_feature("Price vs Model Year", X_model_year, y)```
 
 1. Price vs Odometer:
 
-Price vs Odometer
  - Mean Squared Error (MSE): 883302247.9873015
  - R-squared (R²): 0.0004469943499377793
  - Coefficient for Price vs Odometer: 0.009921914499807838
@@ -166,7 +165,6 @@ Price vs Odometer
 
 2. Price vs Condition:
 
-Price vs Condition
  - Mean Squared Error (MSE): 883293109.4070103
  - R-squared (R²): 0.0004573356520438665
  - Coefficient for Price vs Condition: 576.0638776428258
@@ -177,7 +175,6 @@ Price vs Condition
 
 3. Price vs Model Year
 
-Price vs Model Year
  - Mean Squared Error (MSE): 820532723.6300294
  - R-squared (R²): 0.071477569532441
  - Coefficient for Price vs Model Year: -12.722549154304126
