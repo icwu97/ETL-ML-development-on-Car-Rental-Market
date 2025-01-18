@@ -224,21 +224,31 @@ Multivariate Linear Regression Results:
    model_year: -15.68573442815044
 
 
-MSE: This MSE indicates the average squared deviation between the predicted and actual prices when considering all features. The MSE is slightly lower compared to univariate models, suggesting that combining multiple features improves the model's fit marginally.
+ - MSE: This MSE indicates the average squared deviation between the predicted and actual prices when considering all features. The MSE is slightly lower compared to univariate models, suggesting that combining multiple features improves the model's fit marginally.
 
-R²: About 8.53% of the variation in price is explained by the combined effects of odometer, condition, and model year. While this is an improvement over individual feature R² values, it still indicates that a significant portion of the price variability is not captured by these features, suggesting the need for additional or alternative predictors.
+ - R²: About 8.53% of the variation in price is explained by the combined effects of odometer, condition, and model year. While this is an improvement over individual feature R² values, it still indicates that a significant portion of the price variability is not captured by these features, suggesting the need for additional or alternative predictors.
 
-Intercept (49,497.36): When all features (odometer, condition_encoded, model_year) are 0, the baseline price of the car is approximately $49,497. While this value might not be meaningful practically, it helps anchor the regression line.
+ - Intercept: When all features (odometer, condition_encoded, model_year) are 0, the baseline price of the car is approximately $49,497. 
 
-Coefficients:
+ - Coefficients:
 
- - Odometer (-0.0625): For each additional mile, the price decreases by $0.0625, holding all other features constant. This reflects the expected trend where higher mileage leads to lower car prices.
- - Condition Encoded (32.04): For each unit increase in the condition's encoded value, the price increases by $32.04, assuming other features are constant. While the impact is positive, the effect is relatively small, indicating condition alone has limited influence on price.
- - Model Year (-15.69): For each additional year in the car's model year, the price decreases by $15.69, holding other factors constant. This suggests that older cars (potentially vintage or collectible) might have higher prices, which could explain the negative relationship.
+   - Odometer (-0.0625): For each additional mile, the price decreases by $0.0625, holding all other features constant. This reflects the expected trend where higher mileage leads to lower car prices.
+   - Condition Encoded (32.04): For each unit increase in the condition's encoded value, the price increases by $32.04, assuming other features are constant. While the impact is positive, the effect is relatively small, indicating condition alone has limited influence on price.
+   - Model Year (-15.69): For each additional year in the car's model year, the price decreases by $15.69, holding other factors constant. This suggests that older cars (potentially vintage or collectible) might have higher prices, which could explain the negative relationship.
   
 
 # 5. Conclusion
-This regression model reveals that model year and condition are significant predictors of car price, with condition having a positive effect and model year a negative effect. Odometer, however, is not statistically significant in this model. After investigating, the resons on odometer might cause by luxury brand which may affect between odometer, brand, and price.
-   - For optimal pricing, newer models (2015+) in excellent condition should be priced at the high end of the market range, while those in fair or poor condition should be discounted.
-   - Mid-aged models (2005-2014) in good or excellent condition can be moderately priced.
-   - For older or high-mileage cars in fair or poor condition, focus on budget pricing to attract buyers seeking affordable optionss. 
+This project analyzed the relationships between car features and prices using univariate and multivariate linear regression. The goal was to identify key factors influencing car prices and evaluate the model's ability to predict prices accurately. Key insights and outcomes are as follows:
+
+Combining features in a multivariate regression improved the model's performance slightly, but a significant portion of price variability remained unexplained.
+The coefficients revealed expected trends, such as higher mileage leading to lower prices and better condition contributing to higher prices. 
+The negative relationship between model year and price suggests the potential influence of vintage or collectible cars, highlighting the dataset's unique characteristics.
+
+Business Impact:
+
+Categorize cars into pricing tiers based on their attributes:
+ - Economy Tier: High mileage, older models, lower condition ratings. Recommendation: Focus on affordability for budget-conscious buyers.
+ - Mid-Tier: Moderate mileage, recent models, average condition. Recommendation: Position as a balance of quality and affordability.
+ - Premium Tier: Low mileage, newer models, excellent condition. Recommendation: Highlight premium features and reliability for buyers seeking newer or high-quality vehicles.
+
+
