@@ -155,38 +155,38 @@ analyze_feature("Price vs Model Year", X_model_year, y)```
 
 1. Price vs Odometer:
 
---- Price vs Odometer ---
-Mean Squared Error (MSE): 883302247.9873015
-R-squared (R²): 0.0004469943499377793
-Coefficient for Price vs Odometer: 0.009921914499807838
+Price vs Odometer
+ - Mean Squared Error (MSE): 883302247.9873015
+ - R-squared (R²): 0.0004469943499377793
+ - Coefficient for Price vs Odometer: 0.009921914499807838
    
    - MSE (883,302,247.99): This high value suggests that the model's predictions deviate significantly from the actual prices on average. MSE is sensitive to the scale of the target variable.
    - R² (0.0004): This indicates that only 0.04% of the variation in price is explained by the odometer reading. Essentially, odometer has a negligible effect on the price in this dataset.
    - Coefficient (0.0099): For every 1-unit increase in odometer, the price increases by 0.0099 units. This is unusual because we typically expect odometer to negatively affect price (as cars with higher mileage usually have lower prices). This could be due to outliers, data quality issues, or the need for feature scaling.
 
-3. Price vs Condition:
+2. Price vs Condition:
 
---- Price vs Condition ---
-Mean Squared Error (MSE): 883293109.4070103
-R-squared (R²): 0.0004573356520438665
-Coefficient for Price vs Condition: 576.0638776428258
+Price vs Condition
+ - Mean Squared Error (MSE): 883293109.4070103
+ - R-squared (R²): 0.0004573356520438665
+ - Coefficient for Price vs Condition: 576.0638776428258
 
    - MSE (883,293,109.41): Similar to odometer, the predictions have a large deviation from the actual prices.
    - R² (0.00046): Only 0.046% of the price variation is explained by the car's condition. This suggests condition has a very weak relationship with price in this dataset.
    - Coefficient (576.06): For each unit increase in the condition_encoded feature, the price increases by $576. This suggests that better condition cars (if encoded as higher numbers) are slightly associated with higher prices, but the effect is very weak.
 
-5. Price vs Model Year
+3. Price vs Model Year
 
---- Price vs Model Year ---
-Mean Squared Error (MSE): 820532723.6300294
-R-squared (R²): 0.071477569532441
-Coefficient for Price vs Model Year: -12.722549154304126
+Price vs Model Year
+ - Mean Squared Error (MSE): 820532723.6300294
+ - R-squared (R²): 0.071477569532441
+ - Coefficient for Price vs Model Year: -12.722549154304126
 
    - MSE (820,532,723.63): This MSE is slightly lower than for the other features, meaning the model fits the data marginally better.
    - R² (0.0715): About 7.15% of the price variation is explained by the car's model year. While still weak, model year appears to be more predictive of price compared to odometer or condition.
    - Coefficient (-12.72): For each additional year in the car's model year, the price decreases by $12.72. This negative relationship could imply that older model years are associated with higher prices, which might seem counterintuitive but could make sense if the dataset includes vintage or collectible cars.
 
-7. Relation between multivariate analysis:
+4. Relation between multivariate analysis:
 
 ```
 from sklearn.linear_model import LinearRegression
