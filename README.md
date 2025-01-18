@@ -159,9 +159,9 @@ analyze_feature("Price vs Model Year", X_model_year, y)```
  - R-squared (R²): 0.0004469943499377793
  - Coefficient for Price vs Odometer: 0.009921914499807838
    
-   - MSE (883,302,247.99): This high value suggests that the model's predictions deviate significantly from the actual prices on average. MSE is sensitive to the scale of the target variable.
-   - R² (0.0004): This indicates that only 0.04% of the variation in price is explained by the odometer reading. Essentially, odometer has a negligible effect on the price in this dataset.
-   - Coefficient (0.0099): For every 1-unit increase in odometer, the price increases by 0.0099 units. This is unusual because we typically expect odometer to negatively affect price (as cars with higher mileage usually have lower prices). This could be due to outliers, data quality issues, or the need for feature scaling.
+   - MSE: The model's predictions deviate significantly from the actual prices on average. MSE is sensitive to the scale of the target variable.
+   - R²: This indicates that 0.04% of the variation in price is explained by the odometer reading.
+   - Coefficient: For every 1-unit increase in odometer, the price increases by 0.0099 units. This is unusual because we typically expect odometer to negatively affect price (as cars with higher mileage usually have lower prices).
 
 2. Price vs Condition:
 
@@ -169,9 +169,9 @@ analyze_feature("Price vs Model Year", X_model_year, y)```
  - R-squared (R²): 0.0004573356520438665
  - Coefficient for Price vs Condition: 576.0638776428258
 
-   - MSE (883,293,109.41): Similar to odometer, the predictions have a large deviation from the actual prices.
-   - R² (0.00046): Only 0.046% of the price variation is explained by the car's condition. This suggests condition has a very weak relationship with price in this dataset.
-   - Coefficient (576.06): For each unit increase in the condition_encoded feature, the price increases by $576. This suggests that better condition cars (if encoded as higher numbers) are slightly associated with higher prices, but the effect is very weak.
+   - MSE: Similar to odometer, the predictions have a large deviation from the actual prices.
+   - R²: 0.046% of the price variation is explained by the car's condition. This suggests condition has a weak relationship with price in this dataset.
+   - Coefficient: For each unit increase in the condition feature, the price increases by $576. This suggests that better condition cars are slightly associated with higher prices.
 
 3. Price vs Model Year
 
@@ -179,9 +179,9 @@ analyze_feature("Price vs Model Year", X_model_year, y)```
  - R-squared (R²): 0.071477569532441
  - Coefficient for Price vs Model Year: -12.722549154304126
 
-   - MSE (820,532,723.63): This MSE is slightly lower than for the other features, meaning the model fits the data marginally better.
-   - R² (0.0715): About 7.15% of the price variation is explained by the car's model year. While still weak, model year appears to be more predictive of price compared to odometer or condition.
-   - Coefficient (-12.72): For each additional year in the car's model year, the price decreases by $12.72. This negative relationship could imply that older model years are associated with higher prices, which might seem counterintuitive but could make sense if the dataset includes vintage or collectible cars.
+   - MSE: This MSE is slightly lower than for the other features, meaning the model fits the data marginally better.
+   - R²: 7.15% of the price variation is explained by the car's model year. The model year appears to be more predictive of price compared to odometer or condition.
+   - Coefficient: For each additional year in the car's model year, the price decreases by $12.72. This negative relationship could imply that older model years are associated with higher prices, which might seem counterintuitive but could make sense the cars are vintage or collectible cars.
 
 4. Relation between multivariate analysis:
 
@@ -215,18 +215,18 @@ for feature, coef in zip(X_multivariate.columns, coefficients):
     print(f"  {feature}: {coef}")
 ```
 Multivariate Linear Regression Results:
-Mean Squared Error (MSE): 808287861.6904154
-R-squared (R²): 0.0853339687246768
-Intercept: 49497.36478735225
-Coefficients:
-  odometer: -0.06252319819456688
-  condition_encoded: 32.041516321995246
-  model_year: -15.68573442815044
+ - Mean Squared Error (MSE): 808287861.6904154
+ - R-squared (R²): 0.0853339687246768
+ - Intercept: 49497.36478735225
+ - Coefficients:
+   odometer: -0.06252319819456688
+   condition_encoded: 32.041516321995246
+   model_year: -15.68573442815044
 
 
-MSE (808,287,861.69): This MSE indicates the average squared deviation between the predicted and actual prices when considering all features. The MSE is slightly lower compared to univariate models, suggesting that combining multiple features improves the model's fit marginally.
+MSE: This MSE indicates the average squared deviation between the predicted and actual prices when considering all features. The MSE is slightly lower compared to univariate models, suggesting that combining multiple features improves the model's fit marginally.
 
-R² (0.0853): About 8.53% of the variation in price is explained by the combined effects of odometer, condition, and model year. While this is an improvement over individual feature R² values, it still indicates that a significant portion of the price variability is not captured by these features, suggesting the need for additional or alternative predictors.
+R²: About 8.53% of the variation in price is explained by the combined effects of odometer, condition, and model year. While this is an improvement over individual feature R² values, it still indicates that a significant portion of the price variability is not captured by these features, suggesting the need for additional or alternative predictors.
 
 Intercept (49,497.36): When all features (odometer, condition_encoded, model_year) are 0, the baseline price of the car is approximately $49,497. While this value might not be meaningful practically, it helps anchor the regression line.
 
